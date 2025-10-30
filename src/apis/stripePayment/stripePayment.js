@@ -3,7 +3,7 @@ import axios from "axios";
 //!--------- Stripe Payment --------!//
 export const handleFreeSubscriptionAPI = async () => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/stripe/free-plan",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/stripe/free-plan`,
     {},
     { withCredentials: true }
   );
@@ -14,7 +14,7 @@ export const handleFreeSubscriptionAPI = async () => {
 export const createStripePaymentIntentAPI = async (payment) => {
   // console.log(payment);
   const response = await axios.post(
-    "http://localhost:8090/api/v1/stripe/checkout",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/stripe/checkout`,
     {
       amount: Number(payment?.amount),
       subscriptionPlan: payment?.plan,
@@ -28,7 +28,7 @@ export const createStripePaymentIntentAPI = async (payment) => {
 export const verifyPaymentAPI = async (PaymentId) => {
   // console.log(PaymentId);
   const response = await axios.post(
-    `http://localhost:8090/api/v1/stripe/verify-payment/${PaymentId}`,
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/stripe/verify-payment/${PaymentId}`,
     {},
     { withCredentials: true }
   );

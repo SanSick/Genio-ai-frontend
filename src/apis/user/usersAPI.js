@@ -3,7 +3,7 @@ import axios from "axios";
 //!--------- Registration --------!//
 export const registerAPI = async (userData) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/users/register",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/users/register`,
     {
       email: userData?.email,
       password: userData?.password,
@@ -18,7 +18,7 @@ export const registerAPI = async (userData) => {
 //!--------- Login --------!//
 export const loginAPI = async (userData) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/users/login",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/users/login`,
     {
       email: userData?.email,
       password: userData?.password,
@@ -32,7 +32,7 @@ export const loginAPI = async (userData) => {
 //!--------- Check Auth --------!//
 export const CheckUserAuthStatusAPI = async (userData) => {
   const response = await axios.get(
-    "http://localhost:8090/api/v1/users/auth/check",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/users/auth/check`,
     {
         withCredentials: true,
     }
@@ -43,7 +43,7 @@ export const CheckUserAuthStatusAPI = async (userData) => {
 //!--------- Logout --------!//
 export const logoutAPI = async (userData) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/users/logout",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/users/logout`,
     {},
     {
         withCredentials: true,
@@ -55,7 +55,7 @@ export const logoutAPI = async (userData) => {
 //!--------- Profile --------!//
 export const getUserProfileAPI = async (userData) => {
   const response = await axios.get(
-    "http://localhost:8090/api/v1/users/profile",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/users/profile`,
     {
         withCredentials: true,
     }

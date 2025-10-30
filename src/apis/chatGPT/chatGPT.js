@@ -3,7 +3,7 @@ import axios from "axios";
 //!--------- Registration --------!//
 export const generateContentAPI = async (userPrompt) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/openai/generate-content",
+    `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/openai/generate-content`,
     {
       prompt: userPrompt,
     },
