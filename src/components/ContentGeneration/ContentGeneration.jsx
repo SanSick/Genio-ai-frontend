@@ -152,8 +152,8 @@ const BlogPostAIAssistant = () => {
               <option value="technology">Technology</option>
               <option value="health">Health</option>
               <option value="business">Business</option>
-              <option value="business">Story</option>
-              <option value="business">General</option>
+              <option value="story">Story</option>
+              <option value="general">General</option>
             </select>
             {formik.touched.category && formik.errors.category && (
               <div className="text-red-500 mt-1">{formik.errors.category}</div>
