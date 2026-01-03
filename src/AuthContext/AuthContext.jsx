@@ -11,11 +11,22 @@ export const AuthProvider = ({ children }) => {
     queryKey: ["checkAuth"],
   });
   //Update the Authenticated User
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     setIsAuthenticated(true);
+  //   }
+  // }, [data, isSuccess]);
+
   useEffect(() => {
     if (isSuccess) {
-      setIsAuthenticated(true);
+      if (data?.isAuthenticated) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
     }
   }, [data, isSuccess]);
+  
 
   //Update the user auth after login
   const login = () => {
@@ -31,12 +42,12 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{ isAuthenticated, isError, isLoading, isSuccess, login, logout }}
     >
-        {children}
+      {children}
     </AuthContext.Provider>
   );
 };
 
 //Custom hook
 export const useAuth = () => {
-    return useContext(AuthContext);
-}
+  return useContext(AuthContext);
+};

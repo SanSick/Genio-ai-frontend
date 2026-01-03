@@ -34,7 +34,7 @@ export const CheckUserAuthStatusAPI = async (userData) => {
   const response = await axios.get(
     `${import.meta.env.VITE_REACT_API_BASE_URL}/api/v1/users/auth/check`,
     {
-        withCredentials: true,
+      withCredentials: true,
     }
   );
   return response?.data;
